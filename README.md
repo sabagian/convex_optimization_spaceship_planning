@@ -42,21 +42,19 @@ produce $F_{thrust}$ and the angle of the thruster with respect to the spaceship
 with an offset of $l_r$ to the CoG of the spaceship. The velocity $v_x$ and $v_y$ are the velocities in the x and y
 direction of the spaceship frame respectively. The angle $\psi$ is the angle of the spaceship with respect to the x-axis. The length of the spaceship is $l$.
 
-![Spaceship Dynamics](docs/img/spaceship.png)
+<img src="docs/img/spaceship.png" alt="Spaceship Dynamics" width="60%"/>
 
 ## Constraints
 
 There are several constraints that need to be satisfied, [$x_0, y_0$] is the starting location and [$x_1, y_1$] is the goal location:
 
 - The initial and final inputs needs to be zero: $U(t_0) = U(t_f) = 0$
-- The spaceship needs to arrive close to the goal
-    - $\left\lVert \begin{bmatrix} x(t_f) \\ y(t_f) \end{bmatrix} - \begin{bmatrix} x_{\text{1}} \\ y_{\text{1}}
-      \end{bmatrix} \right\rVert _{2} < \text{pos\_tol}$
+- The spaceship needs to arrive close to the goal  
+  $\left\lVert (x(t_{\mathrm{f}}), y(t_{\mathrm{f}})) - (x_{1}, y_{1}) \right\rVert_{2} < \epsilon_A$
 - with a specified orientation.
-    - $\left\lVert \psi(t_f) - \psi_{\text{1}} \right\rVert _{1} < \text{dir\_tol}$
-- The spaceship needs to arrive with a specified velocity.
-    - $\left\lVert \begin{bmatrix} v_x(t_f) \\ v_y(t_f) \end{bmatrix} - \begin{bmatrix} v_{x,1} \\ v_{y,1}
-      \end{bmatrix} \right\rVert _{2} < \text{vel\_tol}$
+    - $\left\lVert \psi(t_f) - \psi_{\text{1}} \right\rVert _{1} < \epsilon_A$
+- The spaceship's final velocity must be close to the goal velocity  
+  $\left\lVert (v_x(t_f), v_y(t_f)) - (v_{x,1}, v_{y,1}) \right\rVert_{2} < \epsilon_A$
 - The spaceship needs to dodge every obstacle in its path: $(x, y) \bigoplus \mathcal{X}_{Rocket}(\psi) \notin Obstacle
   \quad \forall Obstacle \in Obstacles$
 - The spaceship's mass should be greater than or equal to the mass of the spaceship without fuel: $m(t) \geq m_
