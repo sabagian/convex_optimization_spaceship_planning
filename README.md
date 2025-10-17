@@ -2,7 +2,7 @@
 
 This project has been developed during the course Planning and Decision Making for Autonomous Robots (PDM4AR) at ETH Zurich.
 
-This exercise tackles a complex problem in space exploration - navigating and docking a spaceship through challenging space environments.
+This project tackles a complex problem in space exploration - navigating and docking a spaceship through challenging space environments.
 The goal is to reach the predefined target location using the available thruster of the spaceship, which force and direction can be controlled. 
 The entire planning stack has been implemented using sequential convex optimization and cvxpy as optimization tool.
 
